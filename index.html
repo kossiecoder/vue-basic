@@ -9,34 +9,26 @@
 </head>
 <body>
     <div id="app">
-        <form v-on:submit.prevent="submit">
-            <!-- <input type="text" :value="text" @keyup="updateText"><br> -->
-            <input type="text" v-model="text"><br>
-            {{ text }}<br>
-            <button type="submit">Submit</button>
-        </form>
+        <button @click="changeMessage">Clcik</button>
+        {{ reversedMessage }}
+        {{ reversedMessage }}
+        {{ reversedMessage }}
     </div>
     <script>
         new Vue({
             el: '#app',
             data: {
-               year: 2018,
-               text: 'text'
+               message: '헬로우'
             },
             methods: {
-                plus() {
-                    this.year++;
-                },
-                minus() {
-                    this.year--;
-                },
-                submit() {
-                    alert('submitted');
-                    console.log('hello');
-                },
-                // updateText(event) {
-                //     this.text = event.target.value;
-                // }
+                changeMessage() {
+                    this.message = '코지코더';
+                }
+            },
+            computed: {
+                reversedMessage() {
+                    return this.message.split('').reverse().join('')
+                }
             }
         })
     </script>
