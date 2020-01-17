@@ -9,16 +9,16 @@
 </head>
 <body>
     <div id="app">
-        <button @click="changeMessage">Clcik</button>
-        {{ reversedMessage }}
-        {{ reversedMessage }}
-        {{ reversedMessage }}
+        {{ message }}<br>
+        <button @click="changeMessage">Click</button><br>
+        {{ updated }}
     </div>
     <script>
         new Vue({
             el: '#app',
             data: {
-               message: '헬로우'
+               message: '헬로우',
+               updated: '아니요'
             },
             methods: {
                 changeMessage() {
@@ -28,6 +28,12 @@
             computed: {
                 reversedMessage() {
                     return this.message.split('').reverse().join('')
+                }
+            },
+            watch: {
+                message(newVal, oldVal) {
+                    console.log(newVal, oldVal);
+                    this.updated = '네';
                 }
             }
         })
