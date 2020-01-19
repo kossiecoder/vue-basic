@@ -18,24 +18,30 @@
 </head>
 <body>
     <div id="app">
-        <div :style="{ color: red, fontSize: size}">Hello</div>
-
-        <div :class="{ red: isRed, 'font-bold': isBold}">Hello</div>
-        <button @click="update">Click</button>
+        <!-- <template v-if="number === 1">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>
+        <div v-else-if="number === 2">Hi</div>
+        <div v-else>No</div> -->
+        <div v-show="show">Yes</div>
+        <br>
+        <button @click="toggle">Toggle</button>
     </div>
     <script>
         new Vue({
             el: '#app',
             data: {
-                isRed: false,
-                isBold: false,
-                red: 'red',
-                size: '30px'
+                number: 1,
+                show: false
             },
             methods: {
-                update() {
-                    this.isRed = !this.isRed;
-                    this.isBold = !this.isBold;
+                increaseNumber() {
+                    this.number++;
+                },
+                toggle() {
+                    this.show = !this.show;
                 }
             },
         })
