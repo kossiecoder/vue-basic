@@ -18,31 +18,40 @@
 </head>
 <body>
     <div id="app">
-        <!-- <template v-if="number === 1">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-        </template>
-        <div v-else-if="number === 2">Hi</div>
-        <div v-else>No</div> -->
-        <div v-show="show">Yes</div>
-        <br>
-        <button @click="toggle">Toggle</button>
+        <div>
+            {{ people[0].name }} {{ people[0].age }}
+        </div>
+        <div>
+            {{ people[1].name }} {{ people[1].age }}
+        </div>
+        <div>
+            {{ people[2].name }} {{ people[2].age }}
+        </div>
+        <div>
+            {{ people[3].name }} {{ people[3].age }}
+        </div>
+
+        <hr>
+
+        <div v-for="(person, index) in people" :key="person.id">
+            {{ person.name }} {{ person.age }} {{ index }}
+        </div>
     </div>
     <script>
         new Vue({
             el: '#app',
             data: {
-                number: 1,
-                show: false
+                people: [
+                    { id: 1, name: 'a', age: 20 }, 
+                    { id: 2, name: 'b', age: 21 }, 
+                    { id: 3, name: 'c', age: 22 }, 
+                    { id: 4, name: 'd', age: 23 }, 
+                    { id: 5, name: 'e', age: 24 }, 
+                    { id: 6, name: 'e', age: 25 },
+                ]
             },
             methods: {
-                increaseNumber() {
-                    this.number++;
-                },
-                toggle() {
-                    this.show = !this.show;
-                }
+               
             },
         })
     </script>
