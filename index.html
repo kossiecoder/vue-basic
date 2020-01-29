@@ -5,53 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>뷰 기초 익히기</title>
-    <style>
-        .red {
-            color: red;
-        }
-
-        .font-bold {
-            font-weight: bold;
-        }
-    </style>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <div>
-            {{ people[0].name }} {{ people[0].age }}
-        </div>
-        <div>
-            {{ people[1].name }} {{ people[1].age }}
-        </div>
-        <div>
-            {{ people[2].name }} {{ people[2].age }}
-        </div>
-        <div>
-            {{ people[3].name }} {{ people[3].age }}
-        </div>
-
-        <hr>
-
-        <div v-for="(person, index) in people" :key="person.id">
-            {{ person.name }} {{ person.age }} {{ index }}
-        </div>
+       {{ name }}<br>
+       <button @click="changeText">Click</button>
+    </div>
+    <div id="app-1">
+        {{ name }}<br>
+        <button @click="changeText">Click</button>
     </div>
     <script>
-        new Vue({
+        const app = new Vue({
             el: '#app',
             data: {
-                people: [
-                    { id: 1, name: 'a', age: 20 }, 
-                    { id: 2, name: 'b', age: 21 }, 
-                    { id: 3, name: 'c', age: 22 }, 
-                    { id: 4, name: 'd', age: 23 }, 
-                    { id: 5, name: 'e', age: 24 }, 
-                    { id: 6, name: 'e', age: 25 },
-                ]
+                name: 'kossie'
             },
             methods: {
-               
+                changeText() {
+                    app1.name = 'kossie updated';
+                }
+            },
+        })
+
+        const app1 = new Vue({
+            el: '#app-1',
+            data: {
+                name: 'kossie1'
+            },
+            methods: {
+                changeText() {
+                    app.name = 'kossie1 updated';
+                }
             },
         })
     </script>
