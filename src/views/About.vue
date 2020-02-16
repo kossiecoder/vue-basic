@@ -11,6 +11,6 @@ import KossieCoder from '@/components/KossieCoder.vue';
 export default {
   components: {
     KossieCoder
-  }  
+  },
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>This is Home page</h1>
-    <KossieCoder />
+    <KossieCoder title="home title" name="Kossie Coder"/>
   </div>
 </template>
 
